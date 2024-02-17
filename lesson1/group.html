@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>learning_content</title>
+    <link rel="stylesheet" type="text/css" href="js/style.css">
+    </head>
+    <body>
+      <h3 class="heading"> مقدمة عن الواقع المعزز   </h3>
+      
+      <div class="container">
+        <div class="main-video">
+          <div class="video">
+            <video src="images/vid0.mp4" controls></video>
+            <h3 class="title"> الأهداف</h3>
+          </div>
+        </div>
+
+        <div class="video-list">
+          <div class="vid active">
+            <video src="images/vid0.mp4" muted></video>
+            <h3 class="title"> الأهداف </h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid1.mp4" muted></video>
+            <h3 class="title">مفهوم الواقع المعزز</h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid2.mp4" muted></video>
+            <h3 class="title">خصائص الواقع المعزز</h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid3.mp4" muted></video>
+            <h3 class="title"> ﺃهمية الواقع المعزز في التعليم  </h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid4.mp4" muted></video>
+            <h3 class="title">   أنواع الواقع المعزز </h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid5.mp4" muted></video>
+            <h3 class="title"> تصميم وإنتاج الواقع المعزز </h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid6.mp4" muted></video>
+            <h3 class="title"> تطبيقات تـﺃليف الواقع المعزز  </h3>
+          </div>
+
+        </div>
+        
+      </div>
+<script>
+      let listVideo = document.querySelectorAll('.video-list .vid'); 
+      let mainVideo = document.querySelector('.main-video video');
+      let title = document.querySelector('.main-video .title');
+
+      listVideo.forEach(video =>{
+      video.onclick = () =>{
+      listVideo.forEach(vid => vid.classList.remove('active')); 
+      video.classList.add('active');
+      if(video.classList.contains('active')){
+      let src = video.children[0].getAttribute('src'); 
+      mainVideo.src = src;
+      let text = video.children[1].innerHTML; 
+      title.innerHTML = text;
+                                            };
+                            };
+                                });
+</script>
+
+
+
+<div class="chat-launcher"></div>
+<div class="chat-wrapper" data-headline="ChatBot">
+  <iframe
+  allow="microphone;"
+  src="https://console.dialogflow.com/api-client/demo/embedded/60f19694-ed9b-4a5c-ab43-a65ca32149f4">
+  </iframe>
+</div>
+
+<style>
+  body {
+  font-family: 'Open Sans', sans-serif;
+}
+.chat-launcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 9999;
+  background: orange;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgba(0,0,0,.06),0 2px 32px rgba(0,0,0,.16);
+  
+  &:before, &:after {
+    font-family: FontAwesome;
+    font-size: 34px;
+    position: absolute;
+    -webkit-transition: transform 180ms linear, opacity 130ms linear;
+    transition: transform 180ms linear, opacity 130ms linear;
+  }
+  
+  &:before {
+    content: "\f086";
+    margin: 13px;
+    opacity: 1;
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+  
+  &:after {
+    content: "\f00d";
+    margin: 13px 17px;
+    opacity: 0;
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+
+  &:hover {
+    background: lighten(orange, 8%);
+  }
+
+  &.active:before {
+    opacity: 0;
+    -webkit-transform: rotate(70deg) scale(0);
+    transform: rotate(70deg) scale(0);
+  }
+
+  &.active:after {
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+.chat-wrapper {
+  height: 430px;
+  width: 385px;
+  display: block;
+  border-radius: 5px;
+  background: #ebebeb;
+  position: fixed;
+  right: 20px;
+  bottom: 110px;
+  z-index: 999;
+  box-shadow: 0 1px 6px rgba(0,0,0,.06),0 2px 22px rgba(0,0,0,.16);
+  -webkit-transition: transform 400ms ease;
+  transition: transform 400ms ease;
+  -webkit-transform: translateY(130%);
+  transform: translateY(130%);
+  
+  &:before {
+    height: 3%;
+    padding: 4%;
+    font-size: 1.1em;
+    line-height: 1em;
+    display: block;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #666;
+    color: white;
+    content: attr(data-headline);
+  }
+
+  iframe {
+    width: 100%;
+    height:90%;
+    border: 0;
+    border-radius: 5px;
+    padding: 3%;
+    overflow: hidden;
+  }
+
+  &.is-open {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+</style>
+
+<script>
+
+const readMoreBtn = document.querySelector('.chat-launcher');
+const readMoreBtn2 = document.querySelector('.chat-wrapper');
+
+readMoreBtn.addEventListener('click',(e)=>{
+  readMoreBtn.classList.toggle('active');
+  readMoreBtn2.classList.toggle('is-open');
+})
+
+</script>
+    </body>
+</html>

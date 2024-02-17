@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>learning_content</title>
+    <link rel="stylesheet" type="text/css" href="js/style.css">
+    </head>
+    <body>
+      <h3 class="heading"> تطبيق  zapperللواقع المعزز (studio )  </h3>
+      
+      <div class="container">
+        <div class="main-video">
+          <div class="video">
+            <video src="images/vid0.mp4" controls></video>
+            <h3 class="title"> الأهداف</h3>
+          </div>
+        </div>
+
+        <div class="video-list">
+          <div class="vid active">
+            <video src="images/vid0.mp4" muted></video>
+            <h3 class="title"> الأهداف </h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid1.mp4" muted></video>
+            <h3 class="title"> تنزيل الأستوديو </h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid2.mp4" muted></video>
+            <h3 class="title">فتح برنامج الأستوديو</h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid3.mp4" muted></video>
+            <h3 class="title"> تدوير العناصر </h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid4.mp4" muted></video>
+            <h3 class="title">   النموذج ثلاثي الأبعاد </h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid5.mp4" muted></video>
+            <h3 class="title"> التحكم</h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid6.mp4" muted></video>
+            <h3 class="title"> الصور ثلاثية الأبعاد</h3>
+          </div>
+          <div class="vid">
+            <video src="images/vid7.mp4" muted></video>
+            <h3 class="title"> الفيديوهات ثلاثية الأبعاد</h3>
+          </div>
+        </div>
+      </div>
+<script>
+      let listVideo = document.querySelectorAll('.video-list .vid'); 
+      let mainVideo = document.querySelector('.main-video video');
+      let title = document.querySelector('.main-video .title');
+
+      listVideo.forEach(video =>{
+      video.onclick = () =>{
+      listVideo.forEach(vid => vid.classList.remove('active')); 
+      video.classList.add('active');
+      if(video.classList.contains('active')){
+      let src = video.children[0].getAttribute('src'); 
+      mainVideo.src = src;
+      let text = video.children[1].innerHTML; 
+      title.innerHTML = text;
+                                            };
+                            };
+                                });
+</script>
+
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '65574fd719a9740006e66108' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+
+
+
+    </body>
+</html>
