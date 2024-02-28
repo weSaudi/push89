@@ -65,128 +65,18 @@
                                 });
 </script>
 
-
-<div class="chat-launcher"></div>
-<div class="chat-wrapper" data-headline="ChatBot">
-  <iframe
-  allow="microphone;"
-  src="https://console.dialogflow.com/api-client/demo/embedded/60f19694-ed9b-4a5c-ab43-a65ca32149f4">
-  </iframe>
-</div>
-
-<style>
-  body {
-  font-family: 'Open Sans', sans-serif;
-}
-.chat-launcher {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  z-index: 9999;
-  background: orange;
-  color: white;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 1px 6px rgba(0,0,0,.06),0 2px 32px rgba(0,0,0,.16);
-  
-  &:before, &:after {
-    font-family: FontAwesome;
-    font-size: 34px;
-    position: absolute;
-    -webkit-transition: transform 180ms linear, opacity 130ms linear;
-    transition: transform 180ms linear, opacity 130ms linear;
-  }
-  
-  &:before {
-    content: "\f086";
-    margin: 13px;
-    opacity: 1;
-    -webkit-transform: rotate(0deg) scale(1);
-    transform: rotate(0deg) scale(1);
-  }
-  
-  &:after {
-    content: "\f00d";
-    margin: 13px 17px;
-    opacity: 0;
-    -webkit-transform: rotate(-30deg);
-    transform: rotate(-30deg);
-  }
-
-  &:hover {
-    background: lighten(orange, 8%);
-  }
-
-  &.active:before {
-    opacity: 0;
-    -webkit-transform: rotate(70deg) scale(0);
-    transform: rotate(70deg) scale(0);
-  }
-
-  &.active:after {
-    opacity: 1;
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-
-.chat-wrapper {
-  height: 430px;
-  width: 385px;
-  display: block;
-  border-radius: 5px;
-  background: #ebebeb;
-  position: fixed;
-  right: 20px;
-  bottom: 110px;
-  z-index: 999;
-  box-shadow: 0 1px 6px rgba(0,0,0,.06),0 2px 22px rgba(0,0,0,.16);
-  -webkit-transition: transform 400ms ease;
-  transition: transform 400ms ease;
-  -webkit-transform: translateY(130%);
-  transform: translateY(130%);
-  
-  &:before {
-    height: 3%;
-    padding: 4%;
-    font-size: 1.1em;
-    line-height: 1em;
-    display: block;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background: #666;
-    color: white;
-    content: attr(data-headline);
-  }
-
-  iframe {
-    width: 100%;
-    height:90%;
-    border: 0;
-    border-radius: 5px;
-    padding: 3%;
-    overflow: hidden;
-  }
-
-  &.is-open {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-</style>
-
-<script>
-
-const readMoreBtn = document.querySelector('.chat-launcher');
-const readMoreBtn2 = document.querySelector('.chat-wrapper');
-
-readMoreBtn.addEventListener('click',(e)=>{
-  readMoreBtn.classList.toggle('active');
-  readMoreBtn2.classList.toggle('is-open');
-})
-
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '6557cabc08a0550007e4bf04' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
 </script>
     </body>
 </html>
